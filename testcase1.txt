@@ -1,0 +1,107 @@
+% COMPILER TEST CASE ~100 LINES CORRECT
+
+_computeMath input parameter list [ int b2, real c3 ] output parameter list [ int d4, real b3 ] ;
+    % Function scope with no type definitions
+    % Declarations Phase
+    type int : b4 ;
+    type real : c4 ;
+
+    % Statements Phase
+    b4 <--- b2 * 5 ;
+    c4 <--- c3 + 2.57 ;
+    
+    if ( b4 > 10 ) then
+        b4 <--- b4 - 10 ;
+    else
+        b4 <--- 0 ;
+    endif
+    
+    d4 <--- b4 ;
+    b3 <--- c4 ;
+    
+    % Return Phase
+    return [ d4, b3 ] ;
+end
+
+_main
+      
+    record #student
+        type int : age ;
+        type real : gpa ;
+        type int : year ;
+    endrecord
+
+    union #data
+        type int : code ;
+        type real : value ;
+    endunion
+    
+    record #course
+        type int : credits ;
+        type int : capacity ;
+    endrecord
+
+    definetype record #student as #person
+    definetype union #data as #payload
+
+      type int : b2 : global ;
+    type real : c3 ;
+    type #person : d4 ;
+    type #payload : b5 ;
+    type #course : c5 ;
+    type int : d5 ;
+    type int : b6 ;
+    type real : c6 ;
+    
+      b2 <--- 10 ;
+    c3 <--- 20.51 ;
+    d5 <--- 0 ;
+    b6 <--- 1 ;
+    c6 <--- 0.00 ;
+
+        d4.age <--- 21 ;
+    d4.gpa <--- 3.84 ;
+    d4.year <--- 3 ;
+    
+    c5.credits <--- 4 ;
+    c5.capacity <--- 120 ;
+
+       write ( b2 ) ;
+    read ( b5.code ) ;
+
+      [ d5, c6 ] <--- call _computeMath with parameters [ b2, c3 ] ;
+
+   
+    if ( d5 <= 50 ) then
+        b2 <--- b2 + 1 ;
+        write ( b2 ) ;
+    else
+        b2 <--- b2 - 1 ;
+        write ( b2 ) ;
+    endif
+
+        if ( ( b2 == 10 ) &&& ( c3 > 5.00 ) ) then
+        d5 <--- 1 ;
+        
+        if ( ~ ( d4.age < 18 ) ) then
+            write ( d4.age ) ;
+        endif
+        
+    else
+        d5 <--- 0 ;
+    endif
+
+       while ( b6 < 10 )
+        b6 <--- b6 + 1 ;
+        c6 <--- c6 + 1.59 ;
+        
+        if ( b6 == 5 ) then
+            write ( b6 ) ;
+        endif
+    endwhile
+
+       b2 <--- d5 * 10 + 5 / 2 - b6 ;
+    c3 <--- c6 * 2.03 ;
+
+       return ;
+end

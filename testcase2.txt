@@ -1,0 +1,96 @@
+% BIG TEST CASE ~100 LINES (HAS ERRORS)
+_calculateMetrics input parameter list [ int b2, real c3 ] output parameter list [ real d4 ] ;
+    type real : c4 ;
+    type int : b234567890123456789012 ;
+    
+    c4 <--- c3 * 2.5 ;
+    
+    b2 <--- b2 + 1
+    d4 <--- c4 / 2.00 ;
+    
+    return [ d4 ] ;
+end
+
+_thislongfunctionidnfjensnskwndwknwldnwsnndknwpwpndkdn input parameter list [ int b3 ] output parameter list [ int d5 ] ;
+    type int : d6 ;
+    d6 <--- b3 * 10 ;
+    return [ d6 ] ;
+end
+
+_main
+    record #student
+        type int : b2 ;
+        type real : c3 ;
+        type int : d4 ;
+    endrecord
+
+    union #payload
+        type int : b5 ;
+        type real : c5 ;
+    endunion
+
+    definetype record #student as #person
+    definetype union #payload as #data
+
+    type int : b6 : global ;
+    type real : c6 ;
+    type #person : d6 ;
+    type #data : b7 ;
+    type int : c7 ;
+    type real : d7 ;
+    type int : b2 ;
+
+    b6 <--- 100 ;
+    c6 <--- 50.0 ;
+    c7 <--- 0 ;
+    d7 <--- 0.00 ;
+
+    d6.b2 <--- 20 ;
+    d6.c3 <--- 3.75 ;
+    d6.d4 <--- 2026 ;
+
+    read ( b6 ) ;
+    write ( c6 ) ;
+
+    [ d7 ] <--- call _calculateMetrics with parameters [ b6, c6 ] ;
+
+    if ( b6 > 50 )
+        b6 <--- b6 - 10 ;
+    else
+        b6 <--- b6 + 10 ;
+    endif
+
+    while ( c7 < 100 )
+        c7 <--- c7 + 1 ;
+        d7 <--- d7 + 1.50 ;
+        
+        if ( ( c7 == 50 ) && ( d7 < 100.00 ) ) then
+            write ( c7 ) ;
+        endif
+        
+        if ( c7 > 90 ) then
+            b7.b5 <--- c7 ;
+        
+    endwhile
+
+    b6 <--- b6 + c7 * $ ;
+
+    if ( ~ ( d6.b2 == 20 ) ) then
+        write ( d6.c3 ) ;
+    else
+        read ( d6.d4 ) ;
+    endif
+    
+    while ( b2 < 5 )
+        b2 <--- b2 + 1 ;
+        d7 <--- d7 * 2.00 ;
+    endwhile
+    
+    [ c7 ] <--- call _ejdksnnsknd with parameters [ b2 ] ;
+    
+    b6 <--- b6 + 5.2 ;
+    
+    d7 <--- d7 / 0.00 ;
+
+    return ;
+end
